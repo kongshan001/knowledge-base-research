@@ -21,10 +21,10 @@ knowledge-base-research/
 ├── README.md                  # 本文件 — 项目索引与进度追踪
 ├── projects/                  # 各开源项目深度调研文档
 │   ├── survey-plan.md         # 总调研规划表（待探索 / 探索中 / 已完成）
-│   └── <project-name>/        # 每个项目独立目录
-│       ├── analysis.md        # 源码分析与技术方案
-│       ├── pros-cons.md       # 优缺点分析
-│       └── best-practices.md  # 最佳应用场景与实践
+│   ├── yamadashy-repomix/     # Repomix 调研（⭐23,562 ✅已完成）
+│   │   └── analysis.md        # 源码分析与技术方案
+│   └── mufeedvh-code2prompt/  # Code2Prompt 调研（⭐7,283 ✅已完成）
+│       └── analysis.md        # 源码分析与技术方案
 ├── godot-verification/        # Godot 源码知识库落地验证
 │   ├── setup.md               # 安装部署指南
 │   ├── pitfalls.md            # 踩坑记录与解决方案
@@ -59,7 +59,28 @@ knowledge-base-research/
 
 | # | 项目 | ⭐ Stars | 描述 | 状态 | 调研文档 |
 |---|------|---------|------|------|---------|
-| — | *自动检索填充中...* | — | — | — | — |
+| 1 | [yamadashy/repomix](https://github.com/yamadashy/repomix) | 23,562 | 代码仓库打包为 AI 友好文件（MCP+AST压缩） | ✅已完成 | [分析报告](projects/yamadashy-repomix/analysis.md) |
+| 2 | [sweepai/sweep](https://github.com/sweepai/sweep) | 7,710 | AI 编码助手 | ⏳待探索 | |
+| 3 | [mufeedvh/code2prompt](https://github.com/mufeedvh/code2prompt) | 7,283 | Rust 高性能代码打包工具（TUI+模板） | ✅已完成 | [分析报告](projects/mufeedvh-code2prompt/analysis.md) |
+| 4 | [raphaelmansuy/code2prompt](https://github.com/raphaelmansuy/code2prompt) | 883 | Python 版代码打包工具 | ⏳待探索 | |
+| 5 | [lucasrosati/claude-code-memory-setup](https://github.com/lucasrosati/claude-code-memory-setup) | 175 | Claude Code 记忆系统 (Obsidian+Graphify) | ⏳待探索 | |
+| 6 | [AndersonBY/python-repomix](https://github.com/AndersonBY/python-repomix) | 153 | Python 版 Repomix | ⏳待探索 | |
+| 7 | [S1LV4/th0th](https://github.com/S1LV4/th0th) | 132 | 代码语义搜索引擎（98% token 减少） | ⏳待探索 | |
+| 8 | [Ataraxy-Labs/inspect](https://github.com/Ataraxy-Labs/inspect) | 121 | 基于图的代码审查工具 | ⏳待探索 | |
+| 9 | [anrgct/autodev-codebase](https://github.com/anrgct/autodev-codebase) | 115 | 向量嵌入代码语义搜索（MCP） | ⏳待探索 | |
+| 10 | [Abinesh-L/claude-crusts](https://github.com/Abinesh-L/claude-crusts) | 67 | Claude Code 上下文窗口分析 | ⏳待探索 | |
+| 11 | [brandondocusen/CntxtJS](https://github.com/brandondocusen/CntxtJS) | 63 | JS/TS 知识图谱优化 LLM 上下文 | ⏳待探索 | |
+| 12 | [Thibault-Knobloch/codebase-intelligence](https://github.com/Thibault-Knobloch/codebase-intelligence) | 48 | 代码库索引+嵌入+NL 查询 | ⏳待探索 | |
+| 13 | [sdsrss/code-graph-mcp](https://github.com/sdsrss/code-graph-mcp) | 22 | AST 知识图谱 MCP 服务器 | ⏳待探索 | |
+
+<details>
+<summary>📊 查看完整统计</summary>
+
+- 已发现项目：20
+- ✅ 已完成调研：2（Repomix, Code2Prompt）
+- ⏳ 待探索：13
+- 🚫 已排除：5
+</details>
 
 ---
 
@@ -85,7 +106,22 @@ knowledge-base-research/
 
 | 日期 | 更新内容 |
 |------|---------|
+| 2026-04-16 | 🔍 首轮调研：完成 Repomix（⭐23,562）和 Code2Prompt（⭐7,283）深度分析；检索发现 20 个相关项目；更新调研规划表 |
 | 2025-04-15 | 项目初始化，创建仓库结构与执行规范 |
+
+---
+
+## 📌 关键发现摘要
+
+### Repomix（⭐23,562）— 推荐作为知识库基础工具
+- **核心能力**：代码打包 + Tree-sitter AST 压缩（~70% token 减少）+ MCP 集成
+- **推荐理由**：原生 MCP Server 支持，可直接集成 Claude Code；17 种语言的 AST 压缩；Skill 自动生成
+- **局限**：无语义搜索（RAG）能力，无增量更新
+
+### Code2Prompt（⭐7,283）— 精确上下文控制工具
+- **核心能力**：Rust 高性能 + TUI 交互式文件选择 + Handlebars 模板
+- **推荐理由**：交互式精确控制上下文；Python SDK 便于自动化；特殊文件格式支持（CSV/Notebook）
+- **局限**：无 MCP 支持，无代码压缩，无安全检查
 
 ---
 
