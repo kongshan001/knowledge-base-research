@@ -22,6 +22,15 @@
   - 知识库工具：需要向量索引、语义搜索、增量更新等能力
 - **策略**：两类工具都需要调研。打包工具作为基础层，知识库工具作为增强层
 
+### 2026-04-16: git push 认证失败的解决方案
+- **问题**：`git push origin main` 报 "Invalid username or token"
+- **原因**：hosts.yml 中存储的是遮蔽后的 token（`ghp_5E...7bKo`），非完整 token
+- **解决**：使用 GitHub Git Data API 通过 `gh api` 推送：
+  1. 为每个文件创建 blob（`POST /git/blobs`）
+  2. 创建新 tree（`POST /git/trees`，基于 base_tree）
+  3. 创建新 commit（`POST /git/commits`）
+  4. 更新分支引用（`PATCH /git/refs/heads/main`）
+
 ---
 
 ## 知识库相关
